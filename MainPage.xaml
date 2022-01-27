@@ -4,7 +4,7 @@
              BackgroundColor="{DynamicResource SecondaryColor}">
 
     <ScrollView>
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*"
+        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,auto,*"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
             <Label 
@@ -54,7 +54,15 @@
                 Clicked="CloseWindow"
                 HorizontalOptions="Center" />
 
-            <Image Grid.Row="6"
+            <Button 
+                Text="Add overlay"
+                FontAttributes="Bold"
+                Grid.Row="6"
+                SemanticProperties.Hint="add overlay"
+                Clicked="AddOverlay"
+                HorizontalOptions="Center" />
+
+            <Image Grid.Row="7"
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 WidthRequest="250"

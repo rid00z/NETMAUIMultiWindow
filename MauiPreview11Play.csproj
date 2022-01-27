@@ -49,6 +49,12 @@
 		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="FreshMvvm.Maui" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="FreshMvvm.Maui" Version="0.0.1" />
+	</ItemGroup>
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
