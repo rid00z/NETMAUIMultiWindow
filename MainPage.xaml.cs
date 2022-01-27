@@ -74,10 +74,18 @@ public class TestWindowOverlay : WindowOverlay
 		{
 			readonly WindowOverlay _overlay;
 			Circle _circle = new Circle(0, 0, 0);
+			int _size = 20;
 
 			public TestOverlayElement(WindowOverlay overlay)
 			{
 				_overlay = overlay;
+
+				Device.StartTimer(TimeSpan.FromMilliseconds(1), () =>
+				{
+					_size += 10;
+					_overlay.Invalidate();
+					return true;
+				});
 			}
 
 			public void Draw(ICanvas canvas, RectangleF dirtyRect)
@@ -87,11 +95,11 @@ public class TestWindowOverlay : WindowOverlay
 				canvas.FontColor = Colors.Orange;
 				canvas.FontSize = 40f;
 
-				var centerX = dirtyRect.Width / 2 - 200;
-				var centerY = dirtyRect.Height / 2 - 200;
-				_circle = new Circle(centerX, centerY, 400);
+				var centerX = dirtyRect.Width / 2 - (_size/2);
+				var centerY = dirtyRect.Height / 2 - (_size/2);
+				_circle = new Circle(centerX, centerY, _size);
 
-				canvas.FillCircle(centerX, centerY, 400);
+				canvas.FillCircle(centerX, centerY, _size);
 				canvas.DrawString("🔥", centerX, centerY + 10, HorizontalAlignment.Center);
 			}
 
